@@ -1,12 +1,10 @@
 #!/bin/bash
 set -e
 
-# Check that $1 is set
-if [ -n "$1" ]; then
-  LABEL=$1
-  echo "Setting LABEL=$LABEL"
+if [ -n "$NODE_LABEL" ]; then
+  echo "Found NODE_LABEL=$NODE_LABEL"
 else
-  echo "ERROR: LABEL unset. Exit."
+  echo "ERROR: NODE_LABEL unset. Exit."
   exit
 fi
 
@@ -26,8 +24,8 @@ echo "Fetch $BASE_REPO_URL/config/slurmdbd.conf"
 curl -s "$BASE_REPO_URL/config/slurmdbd.conf" -o /etc/slurm/slurmdbd.conf
 echo
 
-echo "Fetch $BASE_REPO_URL/config/$LABEL-slurm.conf"
-curl -s "$BASE_REPO_URL/config/$LABEL-slurm.conf" -o /etc/slurm/slurm.conf
+echo "Fetch $BASE_REPO_URL/config/$NODE_LABEL-slurm.conf"
+curl -s "$BASE_REPO_URL/config/$NODE_LABEL-slurm.conf" -o /etc/slurm/slurm.conf
 echo
 
 chmod 600 /etc/slurm/slurmdbd.conf

@@ -26,8 +26,8 @@ echo "Fetch $BASE_REPO_URL/config/slurmdbd.conf"
 curl -q "$BASE_REPO_URL/config/slurmdbd.conf" -o /etc/slurm/slurmdbd.conf
 echo
 
-echo "Fetch $BASE_REPO_URL/config/$LABEL.slurm.conf"
-curl -q "$BASE_REPO_URL/config/$LABEL.slurm.conf" -o /etc/slurm/slurm.conf
+echo "Fetch $BASE_REPO_URL/config/$LABEL-slurm.conf"
+curl -q "$BASE_REPO_URL/config/$LABEL-slurm.conf" -o /etc/slurm/slurm.conf
 echo
 
 chmod 600 /etc/slurm/slurmdbd.conf

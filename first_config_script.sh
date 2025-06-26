@@ -30,7 +30,7 @@ echo "Fetch $BASE_REPO_URL/config/$LABEL.slurm.conf"
 curl -q "$BASE_REPO_URL/config/$LABEL.slurm.conf" -o /etc/slurm/slurm.conf
 echo
 
-chmod 600 /etc/slurmdbd.conf
+chmod 600 /etc/slurm/slurmdbd.conf
 HOSTNAME=$(hostname)
 sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/slurm.conf
 

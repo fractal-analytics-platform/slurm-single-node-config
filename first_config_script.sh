@@ -16,12 +16,15 @@ sudo apt upgrade -y
 
 # SLURM configuration
 BASE_REPO_URL=https://raw.githubusercontent.com/fractal-analytics-platform/slurm-single-node-config/refs/heads/main
+echo "Fetch $BASE_REPO_URL/config/cgroup.conf"
 curl "$BASE_REPO_URL/config/cgroup.conf" -o /etc/cgroup.conf
+echo "Fetch $BASE_REPO_URL/config/slurmdbd.conf"
 curl "$BASE_REPO_URL/config/slurmdbd.conf" -o /etc/slurmdbd.conf
+echo "Fetch $BASE_REPO_URL/config/$LABEL.slurm.conf"
 curl "$BASE_REPO_URL/config/$LABEL.slurm.conf" -o /etc/slurm.conf
 chmod 600 /etc/slurmdbd.conf
 HOSTNAME=$(hostname)
-sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" "$SLURM_CONF"
+sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm.conf
 
 echo "All seems good, I will reboot in 3 seconds"
 sleep 3

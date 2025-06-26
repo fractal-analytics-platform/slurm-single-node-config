@@ -17,8 +17,8 @@ fi
 
 
 # Apt update
-sudo apt update -y
-sudo apt upgrade -y
+apt update -y
+apt upgrade -y
 echo "--- end of apt update/upgrade ---"
 echo
 
@@ -42,4 +42,4 @@ sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/slur
 
 echo "All seems good, I will reboot in 3 seconds"
 sleep 3
-sudo reboot
+reboot

@@ -8,6 +8,14 @@ else
   exit
 fi
 
+if [ -n "$GITHUB_TAG" ]; then
+  echo "Found GITHUB_TAG=$GITHUB_TAG"
+else
+  echo "ERROR: GITHUB_TAG unset. Exit."
+  exit
+fi
+
+
 # Apt update
 sudo apt update -y
 sudo apt upgrade -y
@@ -15,7 +23,7 @@ echo "--- end of apt update/upgrade ---"
 echo
 
 # SLURM configuration
-BASE_REPO_URL=https://raw.githubusercontent.com/fractal-analytics-platform/slurm-single-node-config/refs/heads/main
+BASE_REPO_URL="https://raw.githubusercontent.com/fractal-analytics-platform/slurm-single-node-config/tags/$GITHUB_TAG"
 echo "Fetch $BASE_REPO_URL/config/cgroup.conf"
 curl -s "$BASE_REPO_URL/config/cgroup.conf" -o /etc/slurm/cgroup.conf
 echo

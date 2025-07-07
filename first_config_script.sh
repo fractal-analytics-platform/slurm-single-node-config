@@ -22,6 +22,8 @@ apt upgrade -y
 echo "--- end of apt update/upgrade ---"
 echo
 
+apt install munge slurmd slurm-client slurmctld slurmdbd mariadb-server -y
+
 # Install libgl1, needed for `opencv-python` Python package
 apt install libgl1 -y
 
@@ -31,7 +33,7 @@ apt install libgl1 -y
 # > Couldn't load specified plugin name for mpi/pmix: Plugin init() callback failed
 # > MPI: Cannot create context for mpi/pmix
 # > [...]
-apt install libpmix-dev
+apt install libpmix-dev -y
 
 # SLURM configuration
 BASE_REPO_URL="https://raw.githubusercontent.com/fractal-analytics-platform/slurm-single-node-config/tags/$GITHUB_TAG"

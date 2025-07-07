@@ -64,6 +64,8 @@ sed --in-place=".backup" -e 's/Group=slurm/#Group=slurm/g' /usr/lib/systemd/syst
 sed --in-place=".backup" -e 's/Group=slurm/#Group=slurm/g' /usr/lib/systemd/system/slurmctld.service
 echo
 
+systemctl enable slurmd slurmdbd slurmctld slurmd munge
+
 echo "All seems good, I will reboot in 3 seconds"
 sleep 3
 reboot

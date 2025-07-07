@@ -53,6 +53,13 @@ chmod 600 /etc/slurm/slurmdbd.conf
 HOSTNAME=$(hostname)
 sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/slurm.conf
 
+
+sed --in-place=".backup" -e 's/User=slurm/#User=slurm/g' /usr/lib/systemd/system/slurmdbd.service
+sed --in-place=".backup" -e 's/User=slurm/#User=slurm/g' /usr/lib/systemd/system/slurmctld.service
+sed --in-place=".backup" -e 's/Group=slurm/#Group=slurm/g' /usr/lib/systemd/system/slurmdbd.service
+sed --in-place=".backup" -e 's/Group=slurm/#Group=slurm/g' /usr/lib/systemd/system/slurmctld.service
+echo
+
 echo "All seems good, I will reboot in 3 seconds"
 sleep 3
 reboot

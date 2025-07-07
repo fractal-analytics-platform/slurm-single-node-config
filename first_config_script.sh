@@ -19,6 +19,7 @@ fi
 # Apt update
 apt update -y
 apt upgrade -y
+apt install libgl1 -y   # needed for `opencv-python` package
 echo "--- end of apt update/upgrade ---"
 echo
 

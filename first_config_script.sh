@@ -35,6 +35,10 @@ apt install libgl1 -y
 # > [...]
 apt install libpmix-dev -y
 
+# Install `mailutils` , to avoid "Configured MailProg is invalid" error.
+# NOTE: Requires interaction (pick "local" mode).
+# apt install mailutils
+
 # SLURM configuration
 BASE_REPO_URL="https://raw.githubusercontent.com/fractal-analytics-platform/slurm-single-node-config/tags/$GITHUB_TAG"
 echo "Fetch $BASE_REPO_URL/config/cgroup.conf"

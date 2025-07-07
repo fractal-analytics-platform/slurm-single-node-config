@@ -19,9 +19,19 @@ fi
 # Apt update
 apt update -y
 apt upgrade -y
-apt install libgl1 -y   # needed for `opencv-python` package
 echo "--- end of apt update/upgrade ---"
 echo
+
+# Install libgl1, needed for `opencv-python` Python package
+apt install libgl1 -y
+
+# Install libpmix, to avoid this `slurmd` error:
+# > MPI: Loading all types
+# > mpi/pmix_v5: init: (null) [0]: mpi_pmix.c:193: pmi/pmix: can not load PMIx library
+# > Couldn't load specified plugin name for mpi/pmix: Plugin init() callback failed
+# > MPI: Cannot create context for mpi/pmix
+# > [...]
+apt install libpmix-dev
 
 # SLURM configuration
 BASE_REPO_URL="https://raw.githubusercontent.com/fractal-analytics-platform/slurm-single-node-config/tags/$GITHUB_TAG"

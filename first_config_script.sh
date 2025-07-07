@@ -64,6 +64,10 @@ sed --in-place=".backup" -e 's/Group=slurm/#Group=slurm/g' /usr/lib/systemd/syst
 sed --in-place=".backup" -e 's/Group=slurm/#Group=slurm/g' /usr/lib/systemd/system/slurmctld.service
 echo
 
+
+# Make slurmctld service depend on mysql/mysqld services
+sed --in-place=".backup" -e 's/After=network-online.target remote-fs.target munge.service sssd.service$/After=network-online.target remote-fs.target munge.service sssd.service mysql.service mysqld.service/g' /usr/lib/systemd/system/slurmctld.service
+
 systemctl enable slurmd slurmdbd slurmctld slurmd munge
 
 echo "All seems good, I will reboot in 3 seconds"

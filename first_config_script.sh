@@ -81,6 +81,13 @@ chmod 600 /etc/slurm/slurmdbd.conf
 HOSTNAME=$(hostname)
 sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/slurm.conf
 
+if [ "$NODE_LABEL" == "15cpu-60ram-gpu" ]; then
+    echo "Fetch $BASE_REPO_URL/config/gpu-gres.conf"
+    curl -s "$BASE_REPO_URL/config/gpu-gres.conf" -o /etc/slurm/gres.conf
+    echo
+    sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/gres.conf
+fi
+
 echo "All seems good, I will reboot in 3 seconds"
 sleep 3
 reboot

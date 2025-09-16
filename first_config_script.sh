@@ -81,7 +81,7 @@ chmod 600 /etc/slurm/slurmdbd.conf
 HOSTNAME=$(hostname)
 sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/slurm.conf
 
-if [ "$NODE_LABEL" == "15cpu-60ram-gpu" ]; then
+if [ "$NODE_LABEL" == "15cpu-60ram-gpu" ] || [ "$NODE_LABEL" == "8cpu-32ram-gpu" ]; then
     echo "Fetch $BASE_REPO_URL/config/gpu-gres.conf"
     curl -s "$BASE_REPO_URL/config/gpu-gres.conf" -o /etc/slurm/gres.conf
     echo

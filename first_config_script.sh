@@ -88,6 +88,11 @@ if [ "$NODE_LABEL" == "15cpu-60ram-gpu" ] || [ "$NODE_LABEL" == "8cpu-32ram-gpu"
     sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/gres.conf
 fi
 
+# directory set in slurm.conf StateSaveLocation
+# should the services be ever run as a non-root user,
+# this would need to be chown-ed
+mkdir -p "/var/spool/slurmctld"
+
 echo "All seems good, I will reboot in 3 seconds"
 sleep 3
 reboot

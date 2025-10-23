@@ -48,7 +48,7 @@ Actual PyTorch-based test:
 python3.12 -m venv /tmp/venv
 source /tmp/venv/bin/activate
 python3.12 -m pip install torch numpy
-python3.12 -c 'import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0)); assert torch.cuda.get_device_name(0) == "Tesla T4";'
+python3.12 -c 'import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0)); assert torch.cuda.get_device_name(0) == "Tesla T4"; print("ALL OK!");'
 deactivate
 rm -r /tmp/venv
 ```

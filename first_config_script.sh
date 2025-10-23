@@ -23,6 +23,7 @@ apt upgrade -y
 apt install python3.12-venv pipx -y
 apt install munge slurmd slurm-client slurmctld slurmdbd mariadb-server -y
 apt install libgl1 -y   # needed for `opencv-python` package
+apt install cifs-utils  # needed for mounting CIFS shares
 echo "--- end of apt update/upgrade ---"
 echo
 

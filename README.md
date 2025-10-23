@@ -68,3 +68,11 @@ sudo -u fractal-worker touch /home/fractal-worker/.ssh/authorized_keys
 and then populate it with appropriate keys:
 * (required) vm-specific `fractal-worker` key from the main Fractal instance
 * (optional) Relevant team members
+
+## STEP 5: Check SLURM
+
+First, run `sinfo`.
+If it fails, the likely solution is
+```bash
+sudo systemctl restart slurmctld.service
+```

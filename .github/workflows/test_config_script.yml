@@ -24,4 +24,5 @@ jobs:
         run: |
           sed -i '2 a NODE_LABEL="8cpu-32ram"' first_config_script.sh
           sed -i '2 a GITHUB_TAG="v0.0.21"' first_config_script.sh
+          sed -i '/^reboot$/d' ./first_config_script.sh
           sudo -E bash first_config_script.sh

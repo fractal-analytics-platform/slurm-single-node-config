@@ -21,9 +21,7 @@ jobs:
           persist-credentials: false
 
       - name: Run `first_config_script.sh`
-        env:
-          NODE_LABEL: "8cpu-32ram"
-          GITHUB_TAG: "v0.0.21"
         run: |
-          chmod +x ./first_config_script.sh
-          sudo ./first_config_script.sh
+          export NODE_LABEL="8cpu-32ram"
+          export GITHUB_TAG="v0.0.21"
+          sudo bash first_config_script.sh

@@ -22,6 +22,4 @@ jobs:
 
       - name: Run `first_config_script.sh`
         run: |
-          export NODE_LABEL="8cpu-32ram"
-          export GITHUB_TAG="v0.0.21"
-          sudo bash first_config_script.sh
+          NODE_LABEL="8cpu-32ram" GITHUB_TAG="v0.0.21" sudo bash first_config_script.sh

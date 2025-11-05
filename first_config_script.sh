@@ -2,19 +2,8 @@
 
 set -euo pipefail
 
-if [ -n "$NODE_LABEL" ]; then
-  echo "Found NODE_LABEL=$NODE_LABEL"
-else
-  echo "ERROR: NODE_LABEL unset. Exit."
-  exit
-fi
-
-if [ -n "$GITHUB_TAG" ]; then
-  echo "Found GITHUB_TAG=$GITHUB_TAG"
-else
-  echo "ERROR: GITHUB_TAG unset. Exit."
-  exit
-fi
+echo "Found NODE_LABEL=$NODE_LABEL"
+echo "Found GITHUB_TAG=$GITHUB_TAG"
 
 
 # Apt update

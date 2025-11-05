@@ -22,6 +22,6 @@ jobs:
 
       - name: Run `first_config_script.sh`
         env:
-          NODE_LABEL: 8cpu-32ram
-          GITHUB_TAG: v0.0.21
-        run: sudo bash ./first_config_script.sh
+          NODE_LABEL: "8cpu-32ram"
+          GITHUB_TAG: "v0.0.21"
+        run: echo "$NODE_LABEL" #sudo bash ./first_config_script.sh

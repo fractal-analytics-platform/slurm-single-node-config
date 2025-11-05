@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
+          fetch-tags: true
 
       - name: Run `first_config_script.sh`
         run: |

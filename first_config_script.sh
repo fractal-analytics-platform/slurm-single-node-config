@@ -18,12 +18,14 @@ fi
 
 
 # Apt update
+sudo add-apt-repository ppa:deadsnakes/ppa -y
 apt update -y
 apt upgrade -y
 apt install python3.12-venv pipx -y
 apt install munge slurmd slurm-client slurmctld slurmdbd mariadb-server -y
 apt install libgl1 -y   # needed for `opencv-python` package
-apt install cifs-utils  # needed for mounting CIFS shares
+apt install cifs-utils  -y # needed for mounting CIFS shares
+apt install python3.10 python3.10-venv python3.11 python3.11-venv python3.13 python3.13-venv python3.14 python3.14-venv -y
 echo "--- end of apt update/upgrade ---"
 echo
 

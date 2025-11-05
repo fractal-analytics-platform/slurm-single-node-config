@@ -26,6 +26,8 @@ jobs:
           persist-credentials: false
           fetch-tags: true
 
+      - run: git tag -l --sort=creatordate | tail -n1
+
       - name: Run `first_config_script.sh`
         run: |
           sed -i '2 a NODE_LABEL="8cpu-32ram"' first_config_script.sh

@@ -3,7 +3,7 @@
 Configuration files for single-node SLURM cluster
 
 
-## STEP 1: System upgrade and setup
+### STEP 1: System upgrade and setup
 
 Write an executable `run_first_script_from_github.sh` script like
 ```bash
@@ -20,7 +20,7 @@ and run it with `sudo`:
 $ sudo ./run_first_script_from_github.sh
 ```
 
-## STEP 2: GPU drivers
+### STEP 2: GPU drivers
 
 ```bash
 sudo apt install ubuntu-drivers-common
@@ -53,12 +53,12 @@ deactivate
 rm -r /tmp/venv
 ```
 
-# STEP 3: Lock the VM
+### STEP 3: Lock the VM
 
 Lock the VM from the openstack dashboard.
 
 
-## STEP 4: SSH keys
+### STEP 4: SSH keys
 
 Create the appropriate file
 ```bash
@@ -69,10 +69,17 @@ and then populate it with appropriate keys:
 * (required) vm-specific `fractal-worker` key from the main Fractal instance
 * (optional) Relevant team members
 
-## STEP 5: Check SLURM
+### STEP 5: Check SLURM
 
 First, run `sinfo`.
 If it fails, the likely solution is
 ```bash
 sudo systemctl restart slurmctld.service
 ```
+
+
+## Contributors and license
+
+The Fractal project is developed by the [BioVisionCenter](https://www.biovisioncenter.uzh.ch/en.html) at the University of Zurich, who contracts [eXact lab S.r.l](https://www.exact-lab.it/en/). for software engineering and development support.
+
+Unless otherwise specified, Fractal components are released under the BSD 3-Clause License, and copyright is with the BioVisionCenter at the University of Zurich.

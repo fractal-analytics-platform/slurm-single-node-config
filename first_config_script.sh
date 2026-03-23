@@ -18,6 +18,11 @@ apt install python3.10 python3.10-venv python3.11 python3.11-venv python3.13 pyt
 echo "--- end of apt update/upgrade ---"
 echo
 
+# Disable unattended upgrades
+systemctl disable --now unattended-upgrades
+AUTOUPGRADES_FILE="/etc/apt/apt.conf.d/20auto-upgrades"
+sed 's/^APT::Periodic::Unattended-Upgrade "1";$/APT::Periodic::Unattended-Upgrade "0";/g;' "$AUTOUPGRADES_FILE" -i
+
 
 # Create user
 if grep fractal-worker /etc/passwd; then

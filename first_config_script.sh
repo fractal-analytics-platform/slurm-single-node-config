@@ -20,7 +20,7 @@ echo "--- end of apt update/upgrade ---"
 echo
 
 # Disable unattended upgrades
-systemctl disable --now unattended-upgrades
+systemctl disable --now unattended-upgrades || echo "Command 'systemctl disable --now unattended-upgrades' failed with exit code $?"
 AUTOUPGRADES_FILE="/etc/apt/apt.conf.d/20auto-upgrades"
 sed 's/^APT::Periodic::Unattended-Upgrade "1";$/APT::Periodic::Unattended-Upgrade "0";/g;' "$AUTOUPGRADES_FILE" -i
 

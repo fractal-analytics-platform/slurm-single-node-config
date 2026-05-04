@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eu
+set -o pipefail
+set -o xtrace
 
 echo "Found NODE_LABEL=$NODE_LABEL"
 echo "Found GITHUB_TAG=$GITHUB_TAG"

@@ -93,6 +93,10 @@ if [ "$NODE_LABEL" == "15cpu-60ram-gpu" ] || [ "$NODE_LABEL" == "8cpu-32ram-gpu"
     sed --in-place=".backup" -e "s/__REPLACE_HOSTNAME__/$HOSTNAME/g" /etc/slurm/gres.conf
 fi
 
+# Append host name to "127.0.0.1 localhost" entry in `/etc/hosts` - see
+# https://github.com/fractal-analytics-platform/slurm-single-node-config/issues/16
+sed --in-place=".backup" -e "s/127.0.0.1[[:space:]]localhost$/127.0.0.1\tlocalhost $HOSTNAME/g" /etc/hosts
+
 # directory set in slurm.conf StateSaveLocation
 # should the services be ever run as a non-root user,
 # this would need to be chown-ed

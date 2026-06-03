@@ -64,6 +64,7 @@ if [ ! -f "$SERVICE_FILE.backup" ]; then
     cp -v "$SERVICE_FILE" "$SERVICE_FILE.backup"
 fi
 sed 's/^After=network-online.target remote-fs.target munge.service sssd.service$/After=network-online.target remote-fs.target munge.service sssd.service mysql.service mysqld.service/' "$SERVICE_FILE" -i
+systemctl daemon-reload
 echo
 
 

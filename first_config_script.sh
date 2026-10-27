@@ -17,7 +17,7 @@ apt install munge slurmd slurm-client slurmctld slurmdbd mariadb-server -y
 apt install libgl1 -y   # needed for `opencv-python` package
 apt install cifs-utils  -y # needed for mounting CIFS shares
 apt install g++ -y # ref https://github.com/fractal-analytics-platform/fractal-cellpose-sam-task/issues/27
-apt install python3.10 python3.10-venv python3.11 python3.11-venv python3.13 python3.13-venv python3.14 python3.14-venv -y
+apt install python3.10 python3.10-venv python3.11 python3.11-venv python3.13 python3.13-venv python3.14 python3.14-venv python3.15 python3.15-venv -y
 apt install unzip
 echo "--- end of apt update/upgrade ---"
 echo
@@ -41,9 +41,10 @@ else
 fi
 echo
 
-# Create python3.12 venv for user and install fractal-server
-sudo -u fractal-worker python3.12 -m venv /home/fractal-worker/fractal-server-env
-sudo -u fractal-worker /home/fractal-worker/fractal-server-env/bin/python -m pip install fractal-server
+# Create python3.14 venv for user and install fractal-server
+sudo -u fractal-worker python3.14 -m venv /home/fractal-worker/fractal-server-env
+sudo -u fractal-worker /home/fractal-worker/fractal-server-env/bin/python -m pip install pip --upgrade
+sudo -u fractal-worker /home/fractal-worker/fractal-server-env/bin/python -m pip install fractal-server --no-dependencies
 
 
 # Make some systemd services run as `root`

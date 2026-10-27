@@ -41,8 +41,8 @@ else
 fi
 echo
 
-# Create python3.12 venv for user and install fractal-server
-sudo -u fractal-worker python3.12 -m venv /home/fractal-worker/fractal-server-env
+# Create python3.14 venv for user and install fractal-server
+sudo -u fractal-worker python3.14 -m venv /home/fractal-worker/fractal-server-env
 sudo -u fractal-worker /home/fractal-worker/fractal-server-env/bin/python -m pip install fractal-server
 
 
